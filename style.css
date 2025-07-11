@@ -340,11 +340,17 @@ transition: opacity 0.5s ease;
 @media (max-width: 768px) {
 
   .overlay {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: block;
     padding: 1rem;
+    overflow-y: auto;
   }
 
   .content-box {
     padding: 1rem;
+    margin: 0 auto;
   }
 
   .top-row {
