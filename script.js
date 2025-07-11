@@ -188,13 +188,6 @@ window.addEventListener('load', () => {
 
 const bg = document.querySelector('.background-image');
 
-document.addEventListener('mousemove', (e) => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 10;
-  const y = (e.clientY / window.innerHeight - 0.5) * 10;
-  bg.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
-});
-
-
 function updateClock() {
   const clock = document.getElementById('clock');
   const londonTime = new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/London' });
@@ -308,11 +301,15 @@ for (let i = 0; i < particleCount; i++) {
 
 document.addEventListener('mousemove', e => {
   const bg = document.querySelector('.background-image');
-  const x = (e.clientX / window.innerWidth - 0.5) * 10; // adjust 10 for more/less movement
+  const x = (e.clientX / window.innerWidth - 0.5) * 10;
   const y = (e.clientY / window.innerHeight - 0.5) * 10;
-
   bg.style.transform = `translate(${x}px, ${y}px)`;
+
+  // Update mouse position for canvas particles
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
 });
+
 
 
 function animate() {
