@@ -306,10 +306,14 @@ for (let i = 0; i < particleCount; i++) {
   });
 }
 
-document.addEventListener('mousemove', (e) => {
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
+document.addEventListener('mousemove', e => {
+  const bg = document.querySelector('.background-image');
+  const x = (e.clientX / window.innerWidth - 0.5) * 10; // adjust 10 for more/less movement
+  const y = (e.clientY / window.innerHeight - 0.5) * 10;
+
+  bg.style.transform = `translate(${x}px, ${y}px)`;
 });
+
 
 function animate() {
   ctx.clearRect(0, 0, width, height);
@@ -407,4 +411,3 @@ async function fetchRecentTracks() {
 
 fetchRecentTracks();
 setInterval(fetchRecentTracks, 60000); // optional: refresh every 60 sec
-
