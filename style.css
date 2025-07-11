@@ -10,8 +10,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 110vw; /* zoomed in by 110% */
-  height: 110vh;
+  width: 125vw; /* zoomed in by 110% */
+  height: 125vh;
   background: url('https://w.wallhaven.cc/full/j3/wallhaven-j3p215.jpg') no-repeat center center;
   background-size: cover;
   z-index: 0;
