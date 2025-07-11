@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+<div id="loading-screen">
+  <div class="loader-text">Loading<span class="dots">...</span></div>
+</div>
+
+<div class="background-image"></div>
+<div class="background-blur"></div>
+<canvas id="bg-lines"></canvas>
+
+<div class="overlay">
+  <div class="content-box">
+
+    <!-- 🔹 Top Row: Clock - Profile - Suggest -->
+    <div class="top-row">
+      <div class="clock-widget">
+        <h2>🕰 My Time (UK)</h2>
+        <div class="analog-clock">
+          <div class="hand hour-hand"></div>
+          <div class="hand minute-hand"></div>
+          <div class="hand second-hand"></div>
+          <div class="center-dot"></div>
+        </div>
+        <br>
+        <div id="clock">--:--:--</div>
+      </div>
+
+      <div class="header">
+        <h1>Welcome!</h1>
+        <img id="profile-img" src="https://via.placeholder.com/150" alt="Profile Image" class="profile-image" />
+        <p id="username">@Loading...</p>
+        <div class="role">Programmer & rhythm game pro</div>
+        <div class="role">I also play the bass and enjoy a lot of music!</div>
+      </div>
+
+      <div class="suggest-widget">
+        <h2>🎶 Suggest a Song</h2>
+        <p>I'll probably give it a listen!</p>
+        <form id="suggest-form">
+          <input type="url" id="suggest-input" placeholder="Paste Spotify link..." required>
+          <button type="submit">Submit</button>
+          <p id="suggest-msg"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- 🔹 Main content -->
+    <div class="main-content">
+      <div class="music-section">
+        <h2>last.fm</h2>
+        <ul id="recent-tracks" class="track-list"></ul>
+      </div>
+
+      <div class="minesweeper-section">
+        <h2>Minesweeper</h2>
+        <div id="grid" class="minesweeper-grid"></div>
+        <div class="controls">
+          <button id="reset-btn">Restart</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔹 Socials -->
+    <div class="socials-section">
+      <h2>🌐 Other profiles</h2>
+      <a href="https://open.spotify.com/user/3144t5pjejms3ouvktyr2gezatm4" target="_blank">Spotify</a>
+      <a href="https://steamcommunity.com/profiles/76561198308727966/" target="_blank">Steam</a>
+      <a href="https://www.last.fm/user/EnderChicken" target="_blank">last.fm</a>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
