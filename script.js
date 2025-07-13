@@ -3,7 +3,7 @@ fetch('https://discordlookup.mesalytic.moe/v1/user/592490823065534465')
 .then(response => response.json())
 .then(data => {
   if (data.avatar && data.avatar.link) {
-    document.getElementById('profile-img').src = data.avatar.link;
+    //document.getElementById('profile-img').src = data.avatar.link;
   }
   if (data.tag) {
     document.getElementById('username').innerText = `@${data.tag}`;
