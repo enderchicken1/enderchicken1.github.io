@@ -223,20 +223,35 @@ document.getElementById('suggest-form').addEventListener('submit', async functio
     input.value = '';
   } catch (error) {
     console.error(error);
-    msg.textContent = '⚠️ Failed to send suggestion. Check your adblockers etc';
+    msg.textContent = '⚠️ Failed to send suggestion. Check your adblockers etc.';
   }
 });
 
 
 let lastSecond = -1;
 
-function updateAnalogClock() {
+function getLondonTimeParts() {
   const now = new Date();
-  const londonTime = new Date(now.toLocaleString("en-GB", { timeZone: "Europe/London" }));
+  const formatter = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hour12: false,
+  });
 
-  const seconds = londonTime.getSeconds();
-  const minutes = londonTime.getMinutes();
-  const hours = londonTime.getHours();
+  const parts = formatter.formatToParts(now);
+  const get = type => parseInt(parts.find(p => p.type === type)?.value || '0');
+
+  return {
+    hours: get('hour'),
+    minutes: get('minute'),
+    seconds: get('second')
+  };
+}
+
+function updateAnalogClock() {
+  const { hours, minutes, seconds } = getLondonTimeParts();
 
   const secondDeg = seconds * 6;
   const minuteDeg = minutes * 6 + seconds * 0.1;
@@ -246,7 +261,7 @@ function updateAnalogClock() {
   const minuteHand = document.querySelector('.minute-hand');
   const hourHand = document.querySelector('.hour-hand');
 
-  // Remove transition when wrapping from 59 -> 0
+  // Handle second hand wrapping
   if (seconds === 0 && lastSecond === 59) {
     secondHand.style.transition = 'none';
   } else {
