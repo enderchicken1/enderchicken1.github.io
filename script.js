@@ -174,11 +174,35 @@ function checkWin() {
   }
   if (revealedCount === rows * cols - minesCount) {
     gameOver = true;
+    triggerWinAnimation();
   }
 }
 
+
 resetBtn.addEventListener('click', initGrid);
 initGrid();
+
+function triggerWinAnimation() {
+  grid.classList.add('win-animate');
+
+  // Animate revealed cells
+  grid.querySelectorAll('.cell.revealed').forEach(cell => {
+    cell.classList.add('cell-win');
+  });
+
+  // Optional: Show a win message
+  const winMsg = document.createElement('div');
+  winMsg.textContent = '🎉 You Win! 🎉';
+  winMsg.className = 'win-message';
+
+  const minesweeper = document.querySelector('.minesweeper-section');
+  minesweeper.prepend(winMsg);
+
+  setTimeout(() => {
+    winMsg.remove();
+  }, 4000);
+}
+
 
 window.addEventListener('load', () => {
   const loader = document.getElementById('loading-screen');
