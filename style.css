@@ -59,6 +59,7 @@ pointer-events: none;
   width: 90%;
   max-width: 1100px;
   padding: 2rem;
+  background-color: rgba(20, 20, 35, 0.9);
   color: #e0e0e0;
   border-radius: 1rem;
   box-shadow: 0 0 20px #00b8ff;
