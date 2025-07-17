@@ -12,7 +12,7 @@ body {
   left: 0;
   width: 125vw; /* zoomed in by 110% */
   height: 125vh;
-  background: url('https://w.wallhaven.cc/full/j3/wallhaven-j3p215.jpg') no-repeat center center;
+  background: url('bg.jpg') no-repeat center center;
   background-size: cover;
   z-index: 0;
   will-change: transform;
