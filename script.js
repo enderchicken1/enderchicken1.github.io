@@ -237,6 +237,7 @@ document.getElementById('suggest-form').addEventListener('submit', async functio
       content: `🎶 New song suggestion: ${url}`
     };
 
+    // dont abuse it guys
     await fetch('https://discord.com/api/webhooks/1393176028574384169/80Nky-a-eUcYUIT5Dt4xZMWv5o_MySUJJNnDVXb80Y_B1CgsapIhUMTSCns6mCtMlWrS', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
